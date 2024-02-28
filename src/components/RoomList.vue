@@ -11,7 +11,7 @@
         </template>
       </b-table>
       <ul v-if="errors && errors.length">
-        <li v-for="error of errors">
+        <li v-for="error of errors" :key=error>
           {{error.message}}
         </li>
       </ul>
@@ -37,13 +37,13 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/api/room`)
-    .then(response => {
-      this.rooms = response.data
-    })
-    .catch(e => {
-      this.errors.push(e)
-    })
+    axios.get(`http://app:3000/api/room`)
+      .then(response => {
+        this.rooms = response.data
+      })
+      .catch(e => {
+        this.errors.push(e)
+      })
   },
   methods: {
     join (id) {

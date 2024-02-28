@@ -35,15 +35,15 @@ export default {
   methods: {
     onSubmit (evt) {
       evt.preventDefault()
-      axios.post(`http://localhost:3000/api/room`, this.room)
-      .then(response => {
-        this.$router.push({
-          name: 'RoomList'
+      axios.post(`http://app:3000/api/room`, this.room)
+        .then(response => {
+          this.$router.push({
+            name: 'RoomList'
+          })
         })
-      })
-      .catch(e => {
-        this.errors.push(e)
-      })
+        .catch(e => {
+          this.errors.push(e)
+        })
     }
   }
 }
